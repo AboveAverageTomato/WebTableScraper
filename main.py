@@ -19,7 +19,7 @@ def lambda_handler(event, context):
     for headers in table_rows_list[:2]:
         for cell in headers.find_all("td"):
             # Fix the double header row:
-            if "Pagamento" or "P.U.(ex)" not in cell.text:
+            if "Pagamento" not in cell.text and "P.U.(ex)" not in cell.text:
                 headers_list.append(cell.text)
     # Add the last header back in:
     headers_list.append("P.U.(ex)")
